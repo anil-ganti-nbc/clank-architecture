@@ -1,6 +1,6 @@
 # Phase 0 no-promotion policy
 
-Status: **PROPOSED — ACTIVATES ON REVIEWED MERGE**
+Status: **ACTIVE — PROMOTION FROZEN**
 Proposed: 2026-08-21
 Scope: the 13 repositories in the canonical `diagnostic-clank` fleet inventory
 

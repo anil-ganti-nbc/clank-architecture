@@ -13,8 +13,13 @@ def main() -> int:
     adr = (ROOT / "adr/0001-authority-and-phase0-freeze.md").read_text(encoding="utf-8")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     errors: list[str] = []
+    allowed_policy_statuses = (
+        "Status: **PROPOSED — ACTIVATES ON REVIEWED MERGE**",
+        "Status: **ACTIVE — PROMOTION FROZEN**",
+    )
+    if not any(status in policy for status in allowed_policy_statuses):
+        errors.append("policy must declare proposed activation or active promotion freeze")
     required_policy_terms = (
-        "PROPOSED",
         "promotion_eligible: false",
         "UNKNOWN",
         "13 repositories",
@@ -30,7 +35,7 @@ def main() -> int:
     if errors:
         print("\n".join(errors))
         return 1
-    print("Phase 0 governance documents conform to the proposed-state contract")
+    print("Phase 0 governance documents conform to the proposed-or-active-freeze contract")
     return 0
 
 
