@@ -1,0 +1,6 @@
+# Governance, policy, and CI changes require platform-owner review.
+* @anil-ganti-nbc
+/.github/ @anil-ganti-nbc
+/adr/ @anil-ganti-nbc
+/NO_PROMOTION_POLICY.md @anil-ganti-nbc
+/scripts/check_conformance.py @anil-ganti-nbc
