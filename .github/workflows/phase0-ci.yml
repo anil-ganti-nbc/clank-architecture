@@ -45,7 +45,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
-          go install github.com/gitleaks/gitleaks/v8@v8.30.0
+          go install github.com/zricethezav/gitleaks/v8@v8.30.0
           "$(go env GOPATH)/bin/gitleaks" git --redact --no-banner
           "$(go env GOPATH)/bin/gitleaks" dir . --redact --no-banner
   docs:
