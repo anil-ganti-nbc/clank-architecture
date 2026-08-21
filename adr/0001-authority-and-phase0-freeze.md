@@ -1,15 +1,15 @@
 # ADR-0001: Separate governance and control-plane authority
 
-Status: Accepted for Phase 0  
+Status: Proposed
 Date: 2026-08-21
 
 ## Decision
 
-`clank-architecture` is the architecture and governance authority.
-`diagnostic-clank` is the canonical fleet control-plane implementation and owns
-the machine-readable inventory. `unified-clank-platform` is a superseded
-prototype pending a migration review for unique functionality; it is not an
-authority and must not be promoted independently.
+On reviewed merge, `clank-architecture` becomes the architecture and governance
+authority and `diagnostic-clank` becomes the canonical fleet control-plane
+implementation and machine-readable inventory owner. `unified-clank-platform`
+is proposed for supersession, subject to a reviewed unique-function
+disposition; it must not be promoted independently during the freeze.
 
 ## Consequences
 
@@ -24,7 +24,7 @@ authority and must not be promoted independently.
 | Requirement | Owner | Implementation | Verification | Release state |
 |---|---|---|---|---|
 | Complete 13-repository inventory | Control-plane maintainer | `diagnostic-clank/clank-fleet/inventories/fleet.yaml` | inventory completeness tests | Draft |
-| Promotion freeze and status labels | Platform maintainer | `NO_PROMOTION_POLICY.md` | governance review | Active |
+| Promotion freeze and status labels | Platform maintainer | `NO_PROMOTION_POLICY.md` | governance review | Proposed |
 | Loopback-only unauthenticated dashboards | Application maintainers | repository-specific bind guards | repository tests | Draft |
 | Scheduler repair | SemInt maintainer | narrow remediation PR | unit tests plus two real Windows runs | Unverified |
 | Secret-safe CTW logging | CTW maintainer | centralized redaction | sentinel-key tests plus history/artifact scan | Draft |

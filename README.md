@@ -1,6 +1,7 @@
 # Clank Architecture
 
-> Status: **Canonical governance authority. Phase 0 production promotion is frozen.**
+> Status: **PROPOSED governance authority.** The Phase 0 promotion freeze and
+> authority decision become active only if this draft is reviewed and merged.
 
 Historical and governance source for the Unified Clank ecosystem: architecture
 principles, agent working rules, the decision ledger, risk register, roadmap,
@@ -18,6 +19,6 @@ deleted — git history plus explicit documentation explains the evolution.
 
 Current controls:
 
-- [`NO_PROMOTION_POLICY.md`](NO_PROMOTION_POLICY.md) — active fleet freeze and labels
+- [`NO_PROMOTION_POLICY.md`](NO_PROMOTION_POLICY.md) — proposed fleet freeze and labels
 - [`adr/0001-authority-and-phase0-freeze.md`](adr/0001-authority-and-phase0-freeze.md) — authority decision
-- `diagnostic-clank/clank-fleet/inventories/fleet.yaml` — canonical deployment ledger
+- [`diagnostic-clank/clank-fleet/inventories/fleet.yaml`](https://github.com/anil-ganti-nbc/diagnostic-clank/blob/phase0/containment/clank-fleet/inventories/fleet.yaml) — proposed canonical deployment ledger

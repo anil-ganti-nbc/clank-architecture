@@ -1,7 +1,7 @@
 # Phase 0 no-promotion policy
 
-Status: **ACTIVE — PRODUCTION PROMOTION FROZEN**  
-Effective: 2026-08-21  
+Status: **PROPOSED — ACTIVATES ON REVIEWED MERGE**
+Proposed: 2026-08-21
 Scope: the 13 repositories in the canonical `diagnostic-clank` fleet inventory
 
 No default-branch commit, local build, container tag, executable, database, or
@@ -43,5 +43,5 @@ change linking evidence that every Phase 0 exit criterion is met. At minimum:
 6. Chinese Tech Wire secret rotation and history/artifact scanning are recorded;
 7. rollback targets and verified backups exist for every active deployment.
 
-Until that review merges, all inventory entries remain
+After this policy activates and until an unfreeze review merges, all inventory entries remain
 `promotion_eligible: false`.

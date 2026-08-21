@@ -1,0 +1,67 @@
+name: Phase 0 CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: phase0-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  governance:
+    name: policy / phase0-conformance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: "3.12"
+      - run: python scripts/check_conformance.py
+      - name: Reject broken local document links
+        run: |
+          python - <<'PY'
+          import pathlib
+          import re
+          missing = []
+          for source in pathlib.Path('.').rglob('*.md'):
+              text = source.read_text(encoding='utf-8')
+              for target in re.findall(r'\[[^]]+\]\((?!https?://|#)([^)#]+)', text):
+                  if not (source.parent / target).resolve().exists():
+                      missing.append(f'{source}: {target}')
+          if missing:
+              raise SystemExit('\n'.join(missing))
+          PY
+  security:
+    name: security / secrets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - run: |
+          go install github.com/gitleaks/gitleaks/v8@v8.30.0
+          "$(go env GOPATH)/bin/gitleaks" git --redact --no-banner
+          "$(go env GOPATH)/bin/gitleaks" dir . --redact --no-banner
+  docs:
+    name: build / governance-provenance
+    runs-on: ubuntu-latest
+    needs: governance
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Build immutable documentation archive and provenance
+        run: |
+          mkdir -p dist
+          git archive --format=tar -o dist/clank-architecture.tar "$GITHUB_SHA"
+          sha256sum dist/clank-architecture.tar > dist/SHA256SUMS
+          python -c 'import json,os,pathlib; pathlib.Path("dist/provenance.json").write_text(json.dumps({"git_sha":os.environ["GITHUB_SHA"],"repository":os.environ["GITHUB_REPOSITORY"],"artifact":"clank-architecture.tar"},sort_keys=True,indent=2)+"\n")'
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: clank-architecture-provenance
+          path: dist/
+          if-no-files-found: error
