@@ -2,6 +2,7 @@
 
 | ID | Date | Decision | Status |
 |---|---|---|---|
+| ADR-0005 | 2026-08-24 | Four independent audits ratified the Fleet Archaeology Report. Canonical v0.2 now requires observer-only Phase 1 adapters, instance/lane identity, evidence-bearing capability states, baseline/identity handover, scheduler corroboration, golden incidents, and a blocking cross-Clank identity ADR. | ACCEPTED |
 | ADR-0004 | 2026-08-24 | Canonical Clank Architecture Standard v0.1 adopted as primary architecture authority. The multi-model review findings are secondary mandatory rules only when congruent; conflicts require an explicit ADR and historical material remains preserved. | ACCEPTED |
 | DEF-M1.5 | 2026-08-22 | Smartphone adapter ordered runs by UUID-string id (false-STALE; inverse false-HEALTHY risk); shared status mapper lacked fleet vocabularies (SUCCESS/PARTIAL/success/ZERO_ITEMS/BLOCKED). Fixed in diagnostic-clank 97b07ae with UUID-trap + never-upgrade regressions and real-state equality tests; discovered by Motherclank M1 first synthesis. | CLOSED |
 | M4.5-ACT | 2026-08-22 | QC surfaces activated: smartphone qc-action command (analyst_actions had no writer), OEM Radar --allow-review-writes opt-in for the dead v4 review subsystem, KTW feedback writes now take the collector RunLock. Coverage metrics (eligible/review_rate/correction_rate/unmapped) added to Motherclank ingest-qc. M5 entry criteria adopted in M5_ENTRY_CRITERIA.md. | Adopted |

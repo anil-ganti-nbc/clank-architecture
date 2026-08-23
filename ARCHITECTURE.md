@@ -1,5 +1,11 @@
 # Architecture authority
 
+The archaeology audits are ratified by
+[ADR-0005](adr/0005-archaeology-ratified-integration-gates.md). The v0.2
+amendment is binding at the integration boundary: all current Clank adapters
+are observer-tier, runtime identity is instance/lane scoped, and scheduler or
+notification authority requires corroborated evidence.
+
 The primary normative standard is
 [CANONICAL_CLANK_ARCHITECTURE_v0.1.md](CANONICAL_CLANK_ARCHITECTURE_v0.1.md).
 Its primary/secondary precedence rule is governed by

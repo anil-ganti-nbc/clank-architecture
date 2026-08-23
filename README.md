@@ -2,6 +2,12 @@
 
 ## Canonical architecture
 
+[CANONICAL_CLANK_ARCHITECTURE_v0.2.md](CANONICAL_CLANK_ARCHITECTURE_v0.2.md)
+is now the binding integration amendment to v0.1. ADR-0005 ratifies the
+archaeology audits and makes observer-only adapters, instance/lane identity,
+evidence-bearing capabilities, baseline handover, scheduler corroboration, and
+golden incidents mandatory integration gates.
+
 [CANONICAL_CLANK_ARCHITECTURE_v0.1.md](CANONICAL_CLANK_ARCHITECTURE_v0.1.md)
 is the primary normative architecture authority for future Clanks, adapters, and
 Motherclank integration. The review-derived rules in
@@ -25,6 +31,13 @@ handoff documents.
 This repository is documentation and governance, not application code. Where
 architecture files have superseded versions, prior versions are preserved rather than
 deleted — git history plus explicit documentation explains the evolution.
+
+Supporting audit artifacts:
+
+- [ADAPTER_EVIDENCE_MATRIX.md](ADAPTER_EVIDENCE_MATRIX.md) — instance-level registration and verification contract
+- [conformance/GOLDEN_INCIDENTS.md](conformance/GOLDEN_INCIDENTS.md) — archaeology-derived regression register
+- [AUDIT_ACTION_REGISTER.md](AUDIT_ACTION_REGISTER.md) — owned follow-up gates and evidence horizons
+- [audits/CLANK_FLEET_ARCHAEOLOGY_REPORT_2026-08-24.md](audits/CLANK_FLEET_ARCHAEOLOGY_REPORT_2026-08-24.md) — preserved evidence report
 
 Current controls:
 

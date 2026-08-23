@@ -3,6 +3,10 @@
 These rules bind agents working on a Clank, Motherclank, adapter, schema,
 conformance suite, or related governance artifact.
 
+The archaeology-derived v0.2 integration gates in
+CANONICAL_CLANK_ARCHITECTURE_v0.2.md and ADR-0005 are binding. Read the
+instance-level matrix and golden-incident register before changing an adapter.
+
 1. Read `CANONICAL_CLANK_ARCHITECTURE_v0.1.md`, applicable Fleet Laws, and
    accepted ADRs before proposing or implementing architectural work.
 2. Treat the canonical architecture and accepted governance as primary
@@ -28,4 +32,16 @@ conformance suite, or related governance artifact.
 10. Turn material failures into regression fixtures and cite the evidence
     revision. Documentation-only claims of conformance or deployment are not
     sufficient.
+11. Treat every runtime as an instance/lane, not merely a repository. Never
+    combine production, staging, experimental, or retired evidence.
+12. Keep all current adapters observer-only. Motherclank must not schedule,
+    trigger, mutate, write feedback, or send notifications in Phase 1.
+13. Require evidence-bearing capability states, durable baseline cursors,
+    identity-alias handover records, and corroborated scheduler/notification
+    authority before profile changes.
+14. Treat cross-Clank entity resolution as blocked until its own ADR defines
+    global keys, aliases, provenance, ownership, and review semantics.
+15. Keep snapshot-derived directives time-bounded. Open security, scheduler,
+    and deployment debts require an owner, status, evidence horizon, and
+    refresh—not an unassigned note.
 
