@@ -30,6 +30,13 @@ rollback/cleanup behavior.
 | BASELINE-HANDOVER | replacement changes entity keys | Watch/Smartphone report | alias migration precedes live candidates |
 | CROSS-CLANK-IDENTITY | same entity discovered by two Clanks | open architecture issue | no silent merge before identity ADR |
 | SCHEDULER-MISMATCH | declared authority differs from live path | Smartwatch/SemInt/OEM | quarantine or UNKNOWN, never healthy |
+| DB-LOSS-RESTORE | live volume deleted; older backup restored; ~4 days history missing | INC-20260823 volume loss, Smartwatch lane | continuity gap + restored-epoch represented; no invented organic transitions; health and continuity separate |
+| DB-LOSS-NEW-EPOCH | live volume deleted; NO backup; hard new epoch via fresh baseline | INC-20260823 volume loss, Feature Phone lane | epoch boundary preserved; baseline suppresses novelty; absence never zero; M2/M3 cite the incident, never collector-repair advice |
+
+Executable fixtures for DB-LOSS-RESTORE / DB-LOSS-NEW-EPOCH:
+`motherclank` repository, `tests/test_golden_db_loss.py` (branch
+`f6-continuity-f2`, commit `6dc4c99`); incident registry seed
+`continuity/seeds/INC-20260823-volume-loss.jsonl`.
 
 The fixture suite must be executable and versioned; this register alone is not
 conformance evidence.

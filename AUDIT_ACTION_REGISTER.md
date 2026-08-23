@@ -19,6 +19,8 @@ Every item must be refreshed with evidence before its horizon expires.
 | ACT-008 | Convert the golden register into executable fixtures | Conformance maintainer | PENDING | Deterministic fixture tests and reports | Before participant profile |
 | ACT-009 | Define common semantic/coverage probe contract | Architecture + adapter maintainers | PENDING | Versioned probe schema and per-Clank mappings | Before cross-Clank health comparison |
 | ACT-010 | Define append-only feedback backfill and lock evidence | QC/platform maintainer | PENDING | actor/source/policy/import provenance plus lock proof | Before Motherclank feedback writes |
+| ACT-011 | Protect feature-phone fpc-epoch-2 and restored smartwatch DB with SQLite-safe Layer A+B backups; confirm smartwatch post-restore backup cadence | Lane owners + platform operator | OPEN | verified recovery point evidence with as_of | Immediately (INC-20260823 exposure) |
+| ACT-012 | Least-privilege audit of destructive capabilities (volume deletion, prod DB writes, container control, backup access) | Platform operator + security reviewer | OPEN | audit report; changes require separate approval | Before next agent-run host operation |
 
 Snapshot-derived statuses expire. A later verified record supersedes this table;
 it must not silently edit the historical archaeology report.

@@ -38,6 +38,8 @@ Supporting audit artifacts:
 - [conformance/GOLDEN_INCIDENTS.md](conformance/GOLDEN_INCIDENTS.md) — archaeology-derived regression register
 - [AUDIT_ACTION_REGISTER.md](AUDIT_ACTION_REGISTER.md) — owned follow-up gates and evidence horizons
 - [audits/CLANK_FLEET_ARCHAEOLOGY_REPORT_2026-08-24.md](audits/CLANK_FLEET_ARCHAEOLOGY_REPORT_2026-08-24.md) — preserved evidence report
+- [audits/INCIDENT_IMPACT_MAP_2026-08-23.md](audits/INCIDENT_IMPACT_MAP_2026-08-23.md) — volume-loss incident impact analysis (partial; host artifacts pending)
+- [DATA_SURVIVABILITY.md](DATA_SURVIVABILITY.md) — fleet data survivability architecture (DESIGNED; ADR-0007 draft)
 
 Current controls:
 
