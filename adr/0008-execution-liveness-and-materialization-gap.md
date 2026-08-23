@@ -61,7 +61,13 @@ configuration — correct output is INTENTIONALLY_DORMANT, never MISSING_RUN).
 
 Scheduler-neutral by construction: cron, systemd timers, manual/on-demand,
 finite soaks, and Windows experimental lanes are all expressible as policy
-entries.
+entries. **Grace is per-expectation** (`grace_multiplier` on each registry
+entry); no universal multiplier exists and none may be codified. Until each
+lane's grace is calibrated against its real scheduler authority, gap/stale
+determinations are investigative signals for operator review — not alarms
+and never automated actions. Expectation cadences MUST be verified against
+live scheduling authority before activation; placeholder cadences produce
+confidently wrong MATERIALIZATION_GAPs (register item B-5).
 
 ### 4. Derived liveness dimension (orthogonal)
 

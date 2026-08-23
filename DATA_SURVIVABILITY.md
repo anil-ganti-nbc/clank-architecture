@@ -231,18 +231,25 @@ durable-redundancy gate OPEN for both lanes).
 - RECONSTRUCTABLE: canonical upstream sources permit deterministic rebuild.
 - EPHEMERAL: intentionally disposable by design.
 
-### 17.3 Initial RPO/RTO targets (PROPOSED — require operator ratification)
+### 17.3 Initial RPO/RTO targets — **NOT RATIFIED; ILLUSTRATIVE ONLY**
 
-| Class | Target RPO | Target RTO | Backup cadence | Retention generations | Off-host requirement | Restore-drill cadence |
+The numbers in this table are engineering illustrations of how the class
+system maps to policy. They are explicitly NOT ratified and MUST NOT be
+enforced by any tooling, gate, or conformance check. Numeric RPO/RTO is
+lane-aware POLICY to be derived after a real inventory of (a) collection
+cadence per source/lane, (b) data value/replaceability, and (c) storage
+cost — a four-times-daily collector and a half-hour news collector have
+different meaningful loss windows, and one global number would encode a
+fiction. Only the CLASS system itself (§3/§17.2) is proposed for canon.
+
+| Class | Illustrative RPO | Illustrative RTO | Cadence sketch | Retention sketch | Off-host | Drill cadence |
 |---|---|---|---|---|---|---|
-| CRITICAL | ≤ 6 h | ≤ 4 h | ≥ every 6 h (Layer A) + daily Layer B | recent×24 / daily×14 / weekly×8 / monthly×6 | mandatory, destination_class=durable | monthly per lane |
-| STANDARD | ≤ 24 h | ≤ 24 h | daily | daily×14 / weekly×8 | recommended | quarterly |
-| RECONSTRUCTABLE | ≤ 7 d | ≤ 7 d | weekly or pre-mutation only | ×4 | optional | on adoption |
+| CRITICAL | ≤ 6 h ? | ≤ 4 h ? | ≥ every 6 h (Layer A) + daily Layer B | recent×24 / daily×14 / weekly×8 / monthly×6 | mandatory, destination_class=durable | monthly per lane |
+| STANDARD | ≤ 24 h ? | ≤ 24 h ? | daily | daily×14 / weekly×8 | recommended | quarterly |
+| RECONSTRUCTABLE | ≤ 7 d ? | ≤ 7 d ? | weekly or pre-mutation only | ×4 | optional | on adoption |
 | EPHEMERAL | n/a | n/a | none | none | no | no |
 
-These numbers are engineering proposals derived from observed cadences and
-the incident's loss shape; they are NOT law until ratified with storage-cost
-evidence.
+Each "?" marks an unratified placeholder pending the inventory above.
 
 ### 17.4 Fleet survivability matrix (deliverable G; UNKNOWN where unverified)
 
