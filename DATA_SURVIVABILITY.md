@@ -1,8 +1,11 @@
 # Fleet Data Survivability Architecture
 
-Status: **DESIGNED (this document) — not yet IMPLEMENTED or LIVE**
-Authority: ADR-0007 (draft); ownership boundaries per ADR-0001/0002/0006
-Companion incident record: INC-20260823 volume loss
+Status: **DESIGNED + PARTIALLY LIVE** (ACT-011 executed by the privileged
+operator; see §17 Pass-2 update)
+Authority: ADR-0007 (draft), ADR-0009 (draft); ownership boundaries per
+ADR-0001/0002/0006
+Companion incident records: INC-20260822-23 fleet outage + volume loss
+(two families; Diagnostic Clank IDs 62b03383… / 4e3ff5af… / c683b0ff…)
 Separation discipline: every item below is tagged DESIGNED / IMPLEMENTED /
 LIVE / VERIFIED. Nothing in this document authorizes writing to, snapshotting,
 relocating, or restoring live production state without explicit operator
@@ -202,3 +205,70 @@ Post-incident backup existence/cadence for smartwatch; all inventory UNKNOWN
 cells in §4; storage costs; available safe off-host destinations and their
 authorization status; least-privilege audit results; whether FGT's existing
 backup scripts are scheduled anywhere.
+
+---
+
+## 17. PASS 2 UPDATE — 2026-08-24 (operator-verified evidence only)
+
+### 17.1 ACT-011 results (LIVE / VERIFIED)
+
+| Lane | Recovery point | Integrity | Restore drill | Off-host | Durable off-host |
+|---|---|---|---|---|---|
+| smartwatch/staging (epoch sw-epoch-1-restored…) | act011 post-restore RP1; 516 runs; 52,126 observations; RPO ≈ 0 at capture | integrity_check=ok VERIFIED | passed (disposable volume restore) VERIFIED | copy exists | **NO — temporary_scratch only** |
+| feature-phone/production (epoch fpc-epoch-2) | act011 epoch2 RP1; first RP of the new epoch; RPO ≈ 0 at capture | integrity_check=ok VERIFIED | passed (disposable volume restore) VERIFIED | copy exists | **NO — temporary_scratch only** |
+
+Evidence records: `motherclank` `continuity/seeds/survivability-ACT011-verified-live.jsonl`
+(derived protection state per lane: RESTORE_VERIFIED; `off_host_durable: false`;
+durable-redundancy gate OPEN for both lanes).
+
+### 17.2 Objective protection-class criteria (refines §3)
+
+- CRITICAL: observations cannot be reliably reconstructed from upstream
+  sources (source rotation, editorial removal, entitlement expiry). Value is
+  independent of size — a 331 KB irreplaceable DB outranks a multi-GB cache.
+- STANDARD: history materially matters but partial reconstruction from
+  upstream is plausible within days.
+- RECONSTRUCTABLE: canonical upstream sources permit deterministic rebuild.
+- EPHEMERAL: intentionally disposable by design.
+
+### 17.3 Initial RPO/RTO targets (PROPOSED — require operator ratification)
+
+| Class | Target RPO | Target RTO | Backup cadence | Retention generations | Off-host requirement | Restore-drill cadence |
+|---|---|---|---|---|---|---|
+| CRITICAL | ≤ 6 h | ≤ 4 h | ≥ every 6 h (Layer A) + daily Layer B | recent×24 / daily×14 / weekly×8 / monthly×6 | mandatory, destination_class=durable | monthly per lane |
+| STANDARD | ≤ 24 h | ≤ 24 h | daily | daily×14 / weekly×8 | recommended | quarterly |
+| RECONSTRUCTABLE | ≤ 7 d | ≤ 7 d | weekly or pre-mutation only | ×4 | optional | on adoption |
+| EPHEMERAL | n/a | n/a | none | none | no | no |
+
+These numbers are engineering proposals derived from observed cadences and
+the incident's loss shape; they are NOT law until ratified with storage-cost
+evidence.
+
+### 17.4 Fleet survivability matrix (deliverable G; UNKNOWN where unverified)
+
+| Clank/Lane | Store | Backup mechanism | Newest RP | Restore verified? | Off-host durable? | Epoch known? | Scheduler type | Expected-exec policy | Protection class | Confidence |
+|---|---|---|---|---|---|---|---|---|---|---|
+| oem-radar/staging | data/ WAL sqlite | UNKNOWN | UNKNOWN | UNKNOWN | NO evidence | CONTIGUOUS (no loss) | cron (repaired) | PERIODIC (seed) | CRITICAL | medium |
+| smartwatch/staging | restored volume sqlite | ACT-011 RP1 LIVE | 2026-08-24 capture | YES (VERIFIED) | NO (scratch) | sw-epoch-1-restored… | cron (repaired) | PERIODIC (seed) | CRITICAL | high |
+| feature-phone/prod | recreated volume sqlite | ACT-011 RP1 LIVE | 2026-08-24 capture | YES (VERIFIED) | NO (scratch) | fpc-epoch-2 | prod-cron (repaired) | PERIODIC (seed) | CRITICAL | high |
+| watch/prod | host path UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | presumed contiguous | user-timers | PERIODIC (seed) | CRITICAL | low |
+| smartphone/prod | /opt/.../data sqlite | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | presumed contiguous | systemd timers | PERIODIC (seed) | STANDARD | low |
+| ktw/staging | /opt/korean-tech-wire/var | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | presumed contiguous | cron/timer | PERIODIC (seed) | STANDARD | low |
+| ctw/staging | data/ctw.db | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | presumed contiguous | hourly cron | PERIODIC (seed) | STANDARD | low |
+| semint/staging | semintel_staging_data | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | presumed contiguous | OperationalScheduler (path residual open) | PERIODIC (seed) | STANDARD | low |
+| fgt/prod | container volume | scripts exist in repo; scheduling UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | presumed contiguous | hourly cron | PERIODIC (seed) | RECONSTRUCTABLE | low |
+| tablet/experimental | var/tablet_clank.db | none by design | n/a | n/a | no | contiguous | none (by design) | RETIRED (manual/on-demand after Wave 1) | EPHEMERAL→RECONSTRUCTABLE | high |
+
+"presumed contiguous" = no contrary evidence; not a positive claim.
+
+### 17.5 DESIGNED vs IMPLEMENTED vs LIVE vs VERIFIED ledger
+
+| Item | State |
+|---|---|
+| Continuity/liveness/survivability derivation modules + G1–G8 fixtures | IMPLEMENTED (motherclank branch, transferable bundle) |
+| ContinuityEvent / expectation / backup-evidence registries | IMPLEMENTED + seeded with operator-verified incident evidence |
+| ACT-011 recovery points (SW, FPC) | LIVE + VERIFIED (integrity + disposable-volume restore drill) |
+| Durable off-host redundancy | DESIGNED ONLY — current copies are temporary scratch (BLOCKER B-1) |
+| Generational retention, verification cadence tooling | DESIGNED ONLY |
+| Adapter-plane backup-posture evidence object | DESIGNED (schema drafted in this document §13) |
+| Least-privilege destructive-capability audit | NOT STARTED (ACT-012) |

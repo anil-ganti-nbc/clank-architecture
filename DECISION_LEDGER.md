@@ -2,6 +2,10 @@
 
 | ID | Date | Decision | Status |
 |---|---|---|---|
+| INC-20260822-A | 2026-08-24 | Execution-liveness family: root stash -u recreated logs/ root:root; cron redirects failed pre-exec; ~36h silent outage (oem-radar, smartwatch, feature-phone). Diagnostic incident 62b03383…. Codified as MATERIALIZATION_GAP (ADR-0008). | Recorded |
+| ADR-0008 | 2026-08-24 | Execution-liveness model: six evidence-backed stages, expectations registry, MATERIALIZATION_GAP canonical term, intentional-dormancy semantics, scheduler-neutral. Implementation: motherclank f6-continuity-f2 @3558fab + G1–G8 fixtures. | Proposed |
+| ADR-0009 | 2026-08-24 | Runtime-state/source-tree separation law; destructive-operation contract (DISCOVER→…→VERIFY) for future participant tooling; violation reporting over mass refactoring. | Proposed |
+| SURV-ACT011 | 2026-08-24 | ACT-011 executed live by operator: verified recovery points for smartwatch restored DB and feature-phone epoch-2 (integrity ok; disposable-volume restore drill passed); off-host copies temporary_scratch — durable gate remains OPEN. | Recorded |
 | ADR-0007 | 2026-08-24 | Destructive operation safety law (pattern-derived names never authorize deletion), Clank-owned survivability with Motherclank backup-posture observation plane, pre-mutation checkpoint contract, RPO/protection-class framework. | Proposed |
 | ADR-0006 | 2026-08-24 | Observational continuity/epoch semantics: append-only ContinuityEvent registry, orthogonal continuity_state dimension, epoch identity on derived claims, M2 incident records + qualification, M3 incident citation, golden fixtures DB-LOSS-RESTORE / DB-LOSS-NEW-EPOCH. Implementation: motherclank f6-continuity-f2 @6dc4c99. | Proposed |
 | INC-20260823 | 2026-08-23 | Destructive operator error deleted live volumes for smartwatch-clank (restored from 2026-08-18 backup; ~4 days history missing) and feature-phone-clank (no backup; hard new epoch at 2026-08-23T21:36:11Z). Evidence seed: motherclank continuity/seeds/INC-20260823-volume-loss.jsonl. Impact map: audits/INCIDENT_IMPACT_MAP_2026-08-23.md. | Recorded |

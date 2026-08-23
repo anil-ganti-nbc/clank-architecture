@@ -32,11 +32,15 @@ rollback/cleanup behavior.
 | SCHEDULER-MISMATCH | declared authority differs from live path | Smartwatch/SemInt/OEM | quarantine or UNKNOWN, never healthy |
 | DB-LOSS-RESTORE | live volume deleted; older backup restored; ~4 days history missing | INC-20260823 volume loss, Smartwatch lane | continuity gap + restored-epoch represented; no invented organic transitions; health and continuity separate |
 | DB-LOSS-NEW-EPOCH | live volume deleted; NO backup; hard new epoch via fresh baseline | INC-20260823 volume loss, Feature Phone lane | epoch boundary preserved; baseline suppresses novelty; absence never zero; M2/M3 cite the incident, never collector-repair advice |
+| PRE-EXEC-MATERIALIZATION-GAP | root stash -u broke cron redirects BEFORE collector start; ~36h silent; zero app failure records | INC-20260822 fleet scheduler outage (62b03383…) | MATERIALIZATION_GAP raised; collector-regression diagnosis forbidden; dormancy emits nothing |
+| ROOT-STASH-RUNTIME-PATH | untracked logs/ inside checkouts consumed/recreated root:root by redeploy | same incident | runtime-state/source-tree separation law (ADR-0009 §Decision 1) |
 
-Executable fixtures for DB-LOSS-RESTORE / DB-LOSS-NEW-EPOCH:
-`motherclank` repository, `tests/test_golden_db_loss.py` (branch
-`f6-continuity-f2`, commit `6dc4c99`); incident registry seed
-`continuity/seeds/INC-20260823-volume-loss.jsonl`.
+Executable fixtures:
+- `motherclank` `tests/test_golden_db_loss.py` (DB-LOSS-RESTORE / DB-LOSS-NEW-EPOCH)
+- `motherclank` `tests/test_golden_incidents_g1_g8.py` (G1–G8: restore lineage,
+  new epoch, pre-exec gap, dormancy, observer outage, backup evidence discipline)
+Branch `f6-continuity-f2`, commits through `bb58dfd`; registry seeds in
+`continuity/seeds/`.
 
 The fixture suite must be executable and versioned; this register alone is not
 conformance evidence.

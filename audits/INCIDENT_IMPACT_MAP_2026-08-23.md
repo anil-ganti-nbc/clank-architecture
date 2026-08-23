@@ -65,3 +65,48 @@ Stage-specific obligations once host artifacts are available:
 The registry seed shipped with this repository encodes states A–E so that
 the FIRST post-merge harvest/detect run produces the correct qualified view
 without touching any historical line.
+
+---
+
+## PASS 2 ADDENDUM — incident families A and B (operator-verified)
+
+The original single-family analysis is superseded in scope by TWO distinct
+families sharing the 2026-08-22/23 window:
+
+### Family A — execution-liveness failure (62b03383-dd2a-4324-8e02-40682163da47)
+
+2026-08-22 ~09:59–10:06Z: root `git stash -u` / `stash pop` recreated
+untracked `logs/` as root:root inside oem-radar, smartwatch, feature-phone
+checkouts. Cron redirects failed BEFORE collector execution: scheduler
+invocations existed; PROCESS_STARTED never occurred; no failure records
+could exist. Silent ~36 h. OEM Radar lost NO DB data.
+
+Motherclank consequence: STALE_RUN-style inference was structurally unable
+to name this. Now modelled as MATERIALIZATION_GAP (ADR-0008) with stage
+evidence SCHEDULER_FIRED=YES, RUN_MATERIALIZED=NO (justified), and a
+recommendation category that explicitly forbids collector-regression
+diagnosis.
+
+### Family B — storage destruction (4e3ff5af… SW / c683b0ff… FPC)
+
+As analysed above (states B–E), with corrections from live verification:
+Smartwatch loss ≈ 3 days 13 hours of observations (not "4 days"); restored
+lineage is NOT a new epoch; Feature Phone epoch boundary ≈ 2026-08-23T21:36Z.
+Feature Phone's HMD source ReadTimeout post-repair is an ORDINARY source
+failure and must not be conflated with either family.
+
+### Tablet correction
+
+Tablet Clank has no active scheduler BY DESIGN (finite soak completed;
+Promotion Wave 1 moved Honor/TCL to a manual/on-demand production allowlist).
+The stale tablet-clank-soak.service file proves nothing — the application
+refuses retired configuration. Correct liveness output:
+INTENTIONALLY_DORMANT, never MISSING_RUN. Encoded via the expectations
+registry seed (policy=RETIRED).
+
+### Artifact-level confirmation status
+
+Still BLOCKED on host `var/` artifacts for row-level reconciliation of
+Motherclank's own historical batches. The shipped registries encode both
+families so the first post-merge harvest/detect produces correctly qualified
+views without rewriting any historical line.
