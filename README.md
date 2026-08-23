@@ -1,5 +1,14 @@
 # Clank Architecture
 
+## Canonical architecture
+
+[CANONICAL_CLANK_ARCHITECTURE_v0.1.md](CANONICAL_CLANK_ARCHITECTURE_v0.1.md)
+is the primary normative architecture authority for future Clanks, adapters, and
+Motherclank integration. The review-derived rules in
+[ADR-0004](adr/0004-secondary-review-rule-integration.md) are secondary
+mandatory rules: follow them where congruent with primary canon, and reconcile
+any conflict explicitly in a new ADR.
+
 > Status: **PROPOSED governance authority.** The Phase 0 promotion freeze and
 > authority decision become active only if this draft is reviewed and merged.
 

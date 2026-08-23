@@ -2,6 +2,7 @@
 
 | ID | Date | Decision | Status |
 |---|---|---|---|
+| ADR-0004 | 2026-08-24 | Canonical Clank Architecture Standard v0.1 adopted as primary architecture authority. The multi-model review findings are secondary mandatory rules only when congruent; conflicts require an explicit ADR and historical material remains preserved. | ACCEPTED |
 | DEF-M1.5 | 2026-08-22 | Smartphone adapter ordered runs by UUID-string id (false-STALE; inverse false-HEALTHY risk); shared status mapper lacked fleet vocabularies (SUCCESS/PARTIAL/success/ZERO_ITEMS/BLOCKED). Fixed in diagnostic-clank 97b07ae with UUID-trap + never-upgrade regressions and real-state equality tests; discovered by Motherclank M1 first synthesis. | CLOSED |
 | M4.5-ACT | 2026-08-22 | QC surfaces activated: smartphone qc-action command (analyst_actions had no writer), OEM Radar --allow-review-writes opt-in for the dead v4 review subsystem, KTW feedback writes now take the collector RunLock. Coverage metrics (eligible/review_rate/correction_rate/unmapped) added to Motherclank ingest-qc. M5 entry criteria adopted in M5_ENTRY_CRITERIA.md. | Adopted |
 | QC-SOAK-OPEN | 2026-08-22 | Motherclank QC Soak opened (soak-r1 reports via daily timer). Two independent axes declared: Clank maturity/soak state (each Clank's own process) vs Motherclank M5 QC-readiness (evidence sufficiency only). Pre-soak maturity verification recorded for KTW/smartphone/smartwatch/feature-phone — all remain development/soak systems. Continuous Development Principle adopted. | Active |

@@ -1,5 +1,11 @@
 # Architecture authority
 
+The primary normative standard is
+[CANONICAL_CLANK_ARCHITECTURE_v0.1.md](CANONICAL_CLANK_ARCHITECTURE_v0.1.md).
+Its primary/secondary precedence rule is governed by
+[ADR-0004](adr/0004-secondary-review-rule-integration.md). This pointer does
+not change the proposed operational authority boundaries in ADR-0001.
+
 ADR-0001 proposes that this repository govern the Clank fleet without running
 it, that the control-plane implementation and deployment ledger live in
 `diagnostic-clank`, and that `unified-clank-platform` be superseded after a
