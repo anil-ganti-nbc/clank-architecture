@@ -59,3 +59,15 @@ changes: collectors are participant-internal; the observer sees source/
 collector health rows and run records through the same adapter methods.
 Motherclank changes ONLY if Watch's *evidence model* changes (a genuinely
 new evidence type), which is an explicit spec-bump event by design.
+
+## v0.3 additions (ADR-0014) — explicit agent prohibitions
+
+- DO NOT invent run rows; expose what the participant schema actually holds.
+- DO NOT treat derived timestamps as native timestamps (label the clock).
+- DO NOT infer execution from scheduler configuration, or scheduler
+  configuration from observed execution.
+- DO NOT collapse multi-cadence lanes into an invented single cadence.
+- DO NOT add participant-specific evidence semantics to Motherclank core;
+  new evidence = type declaration + validator + consumer + tests.
+- DO NOT turn an unknown evidence type into a false boolean or a zero.
+- DO NOT make collector-count changes require Motherclank changes.

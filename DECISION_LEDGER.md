@@ -18,3 +18,4 @@
 | ADR-0001 | 2026-08-21 | Governance belongs here; the fleet control plane and inventory belong in `diagnostic-clank`; `unified-clank-platform` is proposed for supersession pending migration review. | Proposed |
 | P0-FREEZE | 2026-08-21 | Freeze all production promotion until the Phase 0 exit gate is evidenced and reviewed. | Proposed; activates on merge |
 | ADR-0013 | 2026-08-24 | Observer Adapter Surface Contract v0.2 (required core + optional extensions + fail-safe validation at harvest), Golden Incident Corpus (25 incidents, executable/registered_pending_fixture statuses), cross-plane invariant tests, read-only mutation proofs, onboarding playbook. | Proposed |
+| ADR-0014 | 2026-08-25 | Typed EvidenceEnvelope + consumer registry, semantic-clock labeling, last_run compatibility projection, Lane Config contract with lossless migration from expectations. Implementation: motherclank 45d2352+ (evidence.py/lane_config.py). | Proposed |
