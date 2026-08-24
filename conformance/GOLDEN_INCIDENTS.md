@@ -46,9 +46,12 @@ Executable fixtures:
 - `motherclank` `tests/test_golden_incidents_g1_g8.py` (G1–G8: restore lineage,
   new epoch, pre-exec gap, dormancy, observer outage, backup evidence discipline)
 - `motherclank` `tests/test_p4_golden.py` (P4-G1..G7) and
-  `diagnostic-clank` branch `p4-smartwatch-adapter`
+  `diagnostic-clank` branch `p41-capability-contract`
   `clank-fleet/tests/test_smartwatch_adapter.py`; registry seeds in
   `continuity/seeds/`.
+- `motherclank` `tests/test_p41_no_work.py` (P41-OEM-NOWORK: real
+  due-gated no-work shape across the synthesis/anomaly seam; ALWAYS-lane
+  positive control) and `tests/test_fgt_onboarding.py` (FGT-G1..G10).
 
 The fixture suite must be executable and versioned; this register alone is not
 conformance evidence.
