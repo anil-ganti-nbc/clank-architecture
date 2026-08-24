@@ -45,7 +45,7 @@ Executable fixtures:
 - `motherclank` `tests/test_golden_db_loss.py` (DB-LOSS-RESTORE / DB-LOSS-NEW-EPOCH)
 - `motherclank` `tests/test_golden_incidents_g1_g8.py` (G1–G8: restore lineage,
   new epoch, pre-exec gap, dormancy, observer outage, backup evidence discipline)
-- `motherclank` `tests/test_p4_golden.py` (P4-G1..G6) and
+- `motherclank` `tests/test_p4_golden.py` (P4-G1..G7) and
   `diagnostic-clank` branch `p4-smartwatch-adapter`
   `clank-fleet/tests/test_smartwatch_adapter.py`; registry seeds in
   `continuity/seeds/`.
