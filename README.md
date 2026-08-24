@@ -46,3 +46,7 @@ Current controls:
 - [`NO_PROMOTION_POLICY.md`](NO_PROMOTION_POLICY.md) — proposed fleet freeze and labels
 - [`adr/0001-authority-and-phase0-freeze.md`](adr/0001-authority-and-phase0-freeze.md) — authority decision
 - [`diagnostic-clank/clank-fleet/inventories/fleet.yaml`](https://github.com/anil-ganti-nbc/diagnostic-clank/blob/phase0/containment/clank-fleet/inventories/fleet.yaml) — proposed canonical deployment ledger
+
+- [ADAPTER_CONTRACT.md](ADAPTER_CONTRACT.md) - Observer Adapter Surface Contract v0.2
+- [GOLDEN_INCIDENT_CORPUS.md](GOLDEN_INCIDENT_CORPUS.md) - executable incident corpus index
+- [ONBOARDING.md](ONBOARDING.md) - canonical add-a-Clank procedure
