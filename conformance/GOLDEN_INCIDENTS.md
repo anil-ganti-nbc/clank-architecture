@@ -34,13 +34,21 @@ rollback/cleanup behavior.
 | DB-LOSS-NEW-EPOCH | live volume deleted; NO backup; hard new epoch via fresh baseline | INC-20260823 volume loss, Feature Phone lane | epoch boundary preserved; baseline suppresses novelty; absence never zero; M2/M3 cite the incident, never collector-repair advice |
 | PRE-EXEC-MATERIALIZATION-GAP | root stash -u broke cron redirects BEFORE collector start; ~36h silent; zero app failure records | INC-20260822 fleet scheduler outage (62b03383…) | MATERIALIZATION_GAP raised; collector-regression diagnosis forbidden; dormancy emits nothing |
 | ROOT-STASH-RUNTIME-PATH | untracked logs/ inside checkouts consumed/recreated root:root by redeploy | same incident | runtime-state/source-tree separation law (ADR-0009 §Decision 1) |
+| P4-G1 CRON-FIRED-NO-RUN | trace: fire observed, process_started=false | fixture tests/test_p4_golden.py | positive pre-exec MATERIALIZATION_GAP without run-absence inference |
+| P4-G2 OBSERVER-BLIND | no invocation evidence accessible, run absent | fixture | staleness provable, cause stays UNKNOWN |
+| P4-G3 APPLICATION-FAILED | fired + started + failed run row | fixture | application failure, never pre-exec gap |
+| P4-G4 RETIRED-LANE | policy RETIRED + stray trace present | fixture | NOT_APPLICABLE stages, no anomaly |
+| P4-G5 BACKUP-NO-HASH | BACKUP_CREATED with hash null | fixture | RECOVERY_POINT_WITHOUT_ARTIFACT_HASH warning; crypto-ID separate from verification chain |
+| P4-G6 SMARTWATCH-HARVEST | registry-row onboarding of schema-unmapped adapter | fixtures (both repos) | real-state-compatible UNKNOWN-honest output; zero Motherclank-core edits |
 
 Executable fixtures:
 - `motherclank` `tests/test_golden_db_loss.py` (DB-LOSS-RESTORE / DB-LOSS-NEW-EPOCH)
 - `motherclank` `tests/test_golden_incidents_g1_g8.py` (G1–G8: restore lineage,
   new epoch, pre-exec gap, dormancy, observer outage, backup evidence discipline)
-Branch `f6-continuity-f2`, commits through `bb58dfd`; registry seeds in
-`continuity/seeds/`.
+- `motherclank` `tests/test_p4_golden.py` (P4-G1..G6) and
+  `diagnostic-clank` branch `p4-smartwatch-adapter`
+  `clank-fleet/tests/test_smartwatch_adapter.py`; registry seeds in
+  `continuity/seeds/`.
 
 The fixture suite must be executable and versioned; this register alone is not
 conformance evidence.
