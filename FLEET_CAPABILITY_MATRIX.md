@@ -35,3 +35,5 @@ configuration, not adapter capability.
   points; DURABLE OFF-HOST REMAINS BLOCKED for both and for every other
   lane.
 - baseline/run-kind exists in no onboarded schema except by future design.
+
+| semiconductor-intelligence/staging | semintel staging store (SQLite/alembic) | UNKNOWN | UNKNOWN | UNKNOWN | NO evidence | unknown_or_unverified (ACT-003) | OperationalScheduler + deploy-cron | PERIODIC (unverified) | STANDARD | low |
