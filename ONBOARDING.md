@@ -26,7 +26,15 @@ absolute. Target property: **zero Motherclank-core edits**.
    trace, extractor id/version, continuity event, backup manifest,
    operator attestation).
 8. **Register the lane**: registry entry (+ guarded refresh-real-state line
-   with operator-confirmed paths) + expectations entry.
+   with operator-confirmed paths) + expectations entry. Before activating
+   the refresh line, positively cross-check three things against each
+   other rather than trusting any one alone: the registry's store filename,
+   the refresh script's source path, and the actual deployed datastore
+   (real host path, not a guessed checkout-relative path). A guessed path
+   silently `SKIP`s forever instead of erroring — CTW onboarding shipped
+   with exactly this drift (checkout had no `data/` directory at all; the
+   real store was a differently-named Docker volume) and it was caught
+   only by live discovery, not by review.
 9. **Run contract conformance**: surface validation, capability vocabulary,
    read-only mutation proofs (`tests/test_adapter_contract_v02.py`,
    `test_fgt_onboarding.py` pattern).
