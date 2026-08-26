@@ -37,3 +37,8 @@ configuration, not adapter capability.
 - baseline/run-kind exists in no onboarded schema except by future design.
 
 | semiconductor-intelligence/staging | semintel staging store (SQLite/alembic) | UNKNOWN | UNKNOWN | UNKNOWN | NO evidence | unknown_or_unverified (ACT-003) | OperationalScheduler + deploy-cron | PERIODIC (unverified) | STANDARD | low |
+
+## Architecture Freeze
+
+**v0.3 FROZEN** (2026-08-25). No speculative core redesign. No v0.4 until a real participant or incident proves the contract insufficient. Bug fixes, new adapters, new GICs, and operational improvements are permitted.
+
