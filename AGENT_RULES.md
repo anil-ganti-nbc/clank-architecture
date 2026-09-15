@@ -44,4 +44,13 @@ instance-level matrix and golden-incident register before changing an adapter.
 15. Keep snapshot-derived directives time-bounded. Open security, scheduler,
     and deployment debts require an owner, status, evidence horizon, and
     refresh—not an unassigned note.
+16. All material Clank development MUST be represented in ClankOps.
+    Before implementation, establish the Clank identity and Mission and
+    open/admit exactly one development Session. At meaningful stopping
+    points record a checkpoint with exact code state and next action.
+    Before pausing, blocking, transferring or completing work, record
+    an explicit handoff and truthful Mission lifecycle state. Git,
+    GitHub, CI, deployment evidence and automatic Harvest observations
+    do not replace the Mission/Session/handoff record.
+    (Added 2026-09-15; ADR-0015. Does not rewrite rules 1–15.)
 

@@ -1,5 +1,16 @@
 # Clank Architecture
 
+**Before beginning material Clank development:**
+
+1. read [AGENT_RULES.md](AGENT_RULES.md)
+2. follow [DEVELOPMENT_CONTROL.md](DEVELOPMENT_CONTROL.md)
+3. establish a ClankOps Mission/Session first
+
+Primary law: **NO MATERIAL CLANK DEVELOPMENT EXISTS OUTSIDE CLANKOPS.**
+ClankOps records development state; it does not replace architectural,
+conformance, compute/resource, or domain authority. Dated 2026-09-15
+([ADR-0015](adr/0015-clankops-mandatory-development-control.md)).
+
 ## Canonical architecture
 
 [CANONICAL_CLANK_ARCHITECTURE_v0.2.md](CANONICAL_CLANK_ARCHITECTURE_v0.2.md)
@@ -25,6 +36,7 @@ handoff documents.
 
 - `ARCHITECTURE.md`, `ARCHITECTURE_PRINCIPLES.md` — governing architecture
 - `AGENT_RULES.md` — rules for agents implementing against this architecture
+- `DEVELOPMENT_CONTROL.md` — binding ClankOps development-state procedure
 - `DECISION_LEDGER.md`, `RISK_REGISTER.md`, `ROADMAP.md`
 - `adr/`, `investigations/`, `reviews/`, `stage-specs/`, `handoffs/` — historical record
 

@@ -2,6 +2,7 @@
 
 | ID | Date | Decision | Status |
 |---|---|---|---|
+| ADR-0015 | 2026-09-15 | ClankOps is the mandatory development-state control plane for all material future Clank work. Binding procedure: DEVELOPMENT_CONTROL.md. Agent rule 16. Does not absorb architecture/conformance/runtime/Git/GitHub/CI/deployment authority. | Proposed |
 | INC-20260822-A | 2026-08-24 | Execution-liveness family: root stash -u recreated logs/ root:root; cron redirects failed pre-exec; ~36h silent outage (oem-radar, smartwatch, feature-phone). Diagnostic incident 62b03383…. Codified as MATERIALIZATION_GAP (ADR-0008). | Recorded |
 | ADR-0008 | 2026-08-24 | Execution-liveness model: six evidence-backed stages, expectations registry, MATERIALIZATION_GAP canonical term, intentional-dormancy semantics, scheduler-neutral. Implementation: motherclank f6-continuity-f2 @3558fab + G1–G8 fixtures. | Proposed |
 | ADR-0009 | 2026-08-24 | Runtime-state/source-tree separation law; destructive-operation contract (DISCOVER→…→VERIFY) for future participant tooling; violation reporting over mass refactoring. | Proposed |

@@ -11,3 +11,7 @@ canon; reconcile conflicts explicitly in a new ADR.
 0005-archaeology-ratified-integration-gates.md records the four audit reviews
 of the Fleet Archaeology Report and adopts the v0.2 integration gates.
 
+0015-clankops-mandatory-development-control.md (2026-09-15) makes ClankOps
+the mandatory development-state plane for material future work. It does not
+rewrite v0.1/v0.2 or absorb architecture/domain/runtime authority.
+

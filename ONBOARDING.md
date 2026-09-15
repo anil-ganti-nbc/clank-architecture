@@ -3,6 +3,10 @@
 Canonical procedure. Steps are ordered; prohibitions at the end are
 absolute. Target property: **zero Motherclank-core edits**.
 
+This procedure assumes the participant's development work is already
+represented in ClankOps under [DEVELOPMENT_CONTROL.md](DEVELOPMENT_CONTROL.md).
+Motherclank observation admission remains a separate lifecycle.
+
 ## Procedure
 
 1. **Inspect participant schema/native semantics** from canonical source.
