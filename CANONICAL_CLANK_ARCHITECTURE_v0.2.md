@@ -164,3 +164,14 @@ Participant/managed consideration is blocked until the adapter evidence matrix,
 golden incident fixtures, fresh host verification, baseline handover record,
 and cross-Clank identity ADR are accepted. The Phase 0 no-promotion freeze
 continues to control all production decisions.
+
+## 11. Later amendment (2026-09-15) — development-state control
+
+This section is a **dated pointer**, not an archaeology-derived v0.2
+integration gate and not a rewrite of §§1–10.
+
+Future implementation work follows [DEVELOPMENT_CONTROL.md](DEVELOPMENT_CONTROL.md)
+and [AGENT_RULES.md](AGENT_RULES.md) rule 16 (ADR-0015). Material Clank
+development requires a ClankOps Mission before it begins. ClankOps does not
+absorb architecture, conformance, compute/resource, domain, Git, GitHub, CI,
+or deployment authority.

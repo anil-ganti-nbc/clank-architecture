@@ -28,3 +28,9 @@ The Phase 0 trust boundary is deliberately narrow:
 
 See `adr/0001-authority-and-phase0-freeze.md` for the proposed authority decision
 and `NO_PROMOTION_POLICY.md` for the proposed release gate.
+
+Dated 2026-09-15 (ADR-0015): future implementation work follows
+[DEVELOPMENT_CONTROL.md](DEVELOPMENT_CONTROL.md) and
+[AGENT_RULES.md](AGENT_RULES.md) rule 16. That gate is development-state
+control, not a change to the v0.2 integration gates or ADR-0001 authority
+split.
