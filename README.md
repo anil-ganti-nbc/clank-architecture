@@ -4,7 +4,7 @@
 
 1. read [AGENT_RULES.md](AGENT_RULES.md)
 2. follow [DEVELOPMENT_CONTROL.md](DEVELOPMENT_CONTROL.md)
-3. establish a ClankOps Mission/Session first
+3. establish a ClankOps Mission, then exactly one attributable Session for this actor/workstream
 
 Primary law: **NO MATERIAL CLANK DEVELOPMENT EXISTS OUTSIDE CLANKOPS.**
 ClankOps records development state; it does not replace architectural,

@@ -1,6 +1,7 @@
 # ADR-0015: ClankOps as mandatory development-state control plane
 
-Status: **Proposed** (activates on reviewed merge)
+Status: **ACCEPTED**
+Effective: on merge of reviewed PR #5
 Date: 2026-09-15
 Supersedes: none
 Related: [DEVELOPMENT_CONTROL.md](../DEVELOPMENT_CONTROL.md),

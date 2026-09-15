@@ -45,11 +45,18 @@ instance-level matrix and golden-incident register before changing an adapter.
     and deployment debts require an owner, status, evidence horizon, and
     refresh—not an unassigned note.
 16. All material Clank development MUST be represented in ClankOps.
-    Before implementation, establish the Clank identity and Mission and
-    open/admit exactly one development Session. At meaningful stopping
-    points record a checkpoint with exact code state and next action.
-    Before pausing, blocking, transferring or completing work, record
-    an explicit handoff and truthful Mission lifecycle state.
+    Before implementation, establish the Clank identity and Mission.
+    Each participating actor/workstream must have exactly one attributable
+    Session. Duplicate open Sessions for the same Mission and actor are
+    forbidden. Concurrent actors are permitted only where ClankOps
+    admission allows them and each remains independently attributable.
+    At meaningful stopping points record a checkpoint with exact code
+    state and next action.
+    Ordinary live pause, block, transfer, or completion requires an
+    explicit handoff and truthful Mission lifecycle state. Evidence-backed
+    lifecycle reconciliation remains a separate correction path and must
+    never invent ACTIVE intervals, Sessions, checkpoints, handoffs, or
+    next_action.
     Git commits do not replace ClankOps. GitHub PRs do not replace
     ClankOps. CI success does not replace ClankOps. Fleet Harvest does
     not replace ClankOps. Process exit is not handoff.

@@ -55,8 +55,14 @@ Required:
 - Clank identity exists in ClankOps
 - a coherent Mission exists
 - the agent prepare / resume packet has been reviewed
-- exactly one Session is active for the work
+- each participating development actor/workstream has exactly one
+  attributable Session
 - actor / launcher / context provenance is recorded where supported
+
+Do not create duplicate open Sessions for the same Mission and actor.
+Concurrent actors are permitted only where ClankOps admission semantics
+allow them and each remains independently attributable. This procedure
+does not invent a global one-Session-per-Mission law.
 
 Do not begin implementation, then invent the Mission afterwards.
 
@@ -114,7 +120,8 @@ Deployment does not silently complete the Mission.
 
 ### F. Completion
 
-A Mission may be completed only after:
+Ordinary live completion (the cooperative path while the work is still
+being driven) requires:
 
 - implementation state is known
 - a final checkpoint exists
@@ -123,12 +130,22 @@ A Mission may be completed only after:
 - remaining next action is genuinely none, or post-Mission work is
   represented elsewhere
 - the lifecycle transition is explicit
+- Session closed truthfully
 
-Do not leave `COMPLETED` Missions with an open development Session.
+Do not leave `COMPLETED` Missions with an open development Session after
+ordinary live completion.
 
 Do not automatically complete a Mission because the branch is clean, a
 PR merged, CI is green, a process exited, or a deployed SHA matches
 source.
+
+Stale historical or projected Mission state may still use canonical
+`mission reconcile` for `PLANNED` → `COMPLETED`, `PAUSED` → `COMPLETED`,
+or `BLOCKED` → `COMPLETED` when supported by explicit evidence and `USER`
+reconciliation. Reconciliation MUST NOT fabricate an ACTIVE interval,
+Session, checkpoint, handoff, or next_action. Ordinary live completion
+requires handoff and checkpoint. Evidence-backed lifecycle reconciliation
+is a separate correction path and must never invent those records.
 
 ## Harvest relationship
 
@@ -183,6 +200,12 @@ Instead:
 - record the exact current stop point and next action
 
 Then continue under normal ClankOps control.
+
+If projected Mission state is already historically complete, use
+canonical `mission reconcile` with explicit evidence. Do not invent a
+live Session, checkpoint, handoff, ACTIVE interval, or next_action to
+make the past look cooperative. Historical reconstruction is not live
+observation.
 
 ## Authority boundary
 
