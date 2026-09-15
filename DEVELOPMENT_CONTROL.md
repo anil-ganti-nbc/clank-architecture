@@ -36,10 +36,12 @@ Material development includes at minimum:
 - a production repair
 - a migration
 - a deployment/runtime authority change
-- a substantial investigation likely to produce code/config changes
+- a substantial investigation likely to produce persistent code/config changes
 - standards/conformance remediation
 - a new collector/source family
 - major integration work
+- support tooling intended to persist
+- material prototype or experiment work
 
 Tiny editorial/documentation corrections may remain outside a dedicated
 Mission unless they alter architecture, runtime behaviour, or governance.
@@ -94,6 +96,7 @@ handoff. Only canonical `handoff` writes the handoff record.
 
 Record exact branch, HEAD, PR, and CI result. Preserve existing ClankOps laws:
 
+- source HEAD ≠ deployed HEAD
 - local HEAD ≠ Mission completion
 - CI success ≠ deployment success
 - PR merge ≠ automatic Mission completion
@@ -123,6 +126,10 @@ A Mission may be completed only after:
 
 Do not leave `COMPLETED` Missions with an open development Session.
 
+Do not automatically complete a Mission because the branch is clean, a
+PR merged, CI is green, a process exited, or a deployed SHA matches
+source.
+
 ## Harvest relationship
 
 Fleet Harvest / Fleet Pulse automatically observes local Git state.
@@ -132,6 +139,7 @@ That observation is **not** a replacement for development reporting.
 Harvest can answer:
 
 - what branch / HEAD / dirty state exists?
+- when was that Git state observed?
 
 It cannot answer:
 
@@ -139,10 +147,12 @@ It cannot answer:
 - what objective are we pursuing?
 - what decision was made?
 - what remains?
+- what is blocked?
 - where should the next agent continue?
 
-Automatic Git evidence reduces clerical reporting. It never removes
-Mission / checkpoint / handoff obligations.
+**HARVEST DOES NOT REPLACE DEVELOPMENT REPORTING.** Automatic Git
+evidence reduces clerical reporting. It never removes Mission /
+checkpoint / handoff obligations.
 
 ## New Clank creation
 
@@ -204,3 +214,8 @@ It records and surfaces those facts without absorbing their authority.
 This procedure does not supersede Fleet Laws, canonical architecture v0.1/v0.2,
 the no-promotion policy, or Motherclank observer onboarding
 ([ONBOARDING.md](ONBOARDING.md)).
+
+Git tells us what eventually became code. ClankOps must tell us what we
+were trying to do, where we stopped, why we made the choices we made,
+and what happens next. From this amendment onward, durable Clank
+development without ClankOps state is a governance violation.
