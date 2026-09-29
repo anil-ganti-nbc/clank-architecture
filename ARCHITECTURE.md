@@ -20,9 +20,9 @@ unmerged draft, although it is now in `main`. This dated historical wording
 is not proof that the live Diagnostic service implements the fleet adapter
 plane or that `unified-clank-platform` has been superseded.
 
-[ADR-0016](adr/0016-nas-observer-plane-and-snapshot-contract.md), **only after
-platform-owner review and merge**, is the current narrow observer-plane
-decision: child state → governed read-only snapshot → versioned
+[ADR-0016](adr/0016-nas-observer-plane-and-snapshot-contract.md) is the
+owner-reviewed narrow observer-plane decision and becomes binding on reviewed
+merge: child state → governed read-only snapshot → versioned
 Diagnostic-owned adapter package → Motherclank. It ratifies the precise
 ADR-0001/0002 provisions listed there, supersedes the old unconditional
 observer probe hypothesis, and leaves the live Diagnostic service parallel.

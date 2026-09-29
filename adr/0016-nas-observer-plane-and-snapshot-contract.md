@@ -1,6 +1,6 @@
 # ADR-0016: Ratify the NAS observer plane and governed snapshot contract
 
-Status: **PROPOSED — OWNER REVIEW REQUIRED** (not binding until reviewed and merged)
+Status: **ACCEPTED — effective on reviewed merge**
 Date: 2026-09-29
 Decision owner: Clank architecture/platform owner (`@anil-ganti-nbc`)
 Development record: COPS-000083; blocking observer work: COPS-000081
@@ -280,10 +280,9 @@ that the current NAS partial harvest or live Diagnostic UI is converged.
 
 ## Review and activation gate
 
-The platform owner must review this ADR, the exact supersession table, the
-version separation, snapshot failure semantics, compatibility/rollback, and
-the architecture authority-index changes. CI and link/conformance checks
-must pass on the exact PR head. Before merge, set this ADR's status to
-**ACCEPTED — effective on reviewed merge** and update the README/authority
-index and decision ledger in the same reviewed change. Only a verified merge
-activates this decision and permits COPS-000081 to resume.
+Platform-owner review of the exact supersession table, version separation,
+snapshot failure semantics, compatibility/rollback, and architecture
+authority-index changes is complete. This activation commit records that
+approval. CI and link/conformance checks MUST pass on this exact final PR
+head. Only a verified merge activates this decision and permits COPS-000081
+to resume.
