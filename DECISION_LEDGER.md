@@ -2,6 +2,7 @@
 
 | ID | Date | Decision | Status |
 |---|---|---|---|
+| ADR-0016 | 2026-09-29 | Proposed NAS observer topology: governed child snapshot → versioned Diagnostic-owned adapter package → Motherclank; live Diagnostic service parallel. Ratify observer surface v0.2, define snapshot manifest v1.0, and narrowly reconcile ADR-0001/0002 and the earlier four-probe hypothesis. No runtime or Board admission. | PROPOSED — owner review and merge required |
 | ADR-0015 | 2026-09-15 | ClankOps is the mandatory development-state control plane for all material future Clank work. Binding procedure: DEVELOPMENT_CONTROL.md. Agent rule 16. Does not absorb architecture/conformance/runtime/Git/GitHub/CI/deployment authority. | ACCEPTED |
 | INC-20260822-A | 2026-08-24 | Execution-liveness family: root stash -u recreated logs/ root:root; cron redirects failed pre-exec; ~36h silent outage (oem-radar, smartwatch, feature-phone). Diagnostic incident 62b03383…. Codified as MATERIALIZATION_GAP (ADR-0008). | Recorded |
 | ADR-0008 | 2026-08-24 | Execution-liveness model: six evidence-backed stages, expectations registry, MATERIALIZATION_GAP canonical term, intentional-dormancy semantics, scheduler-neutral. Implementation: motherclank f6-continuity-f2 @3558fab + G1–G8 fixtures. | Proposed |

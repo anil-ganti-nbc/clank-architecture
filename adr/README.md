@@ -15,3 +15,11 @@ of the Fleet Archaeology Report and adopts the v0.2 integration gates.
 the mandatory development-state plane for material future work. It does not
 rewrite v0.1/v0.2 or absorb architecture/domain/runtime authority.
 
+0016-nas-observer-plane-and-snapshot-contract.md (2026-09-29) proposes
+ratification of the NAS snapshot → Diagnostic-owned adapter package →
+Motherclank topology, the six-method Observer Adapter Surface Contract v0.2,
+and governed snapshot manifest v1.0. It becomes binding **only on a reviewed
+platform-owner merge**. Its disposition table identifies exactly which older
+provisions are ratified, superseded, or retained as historical evidence;
+the live Diagnostic service remains a separate parallel surface.
+
