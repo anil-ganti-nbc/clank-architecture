@@ -10,13 +10,25 @@ The primary normative standard is
 [CANONICAL_CLANK_ARCHITECTURE_v0.1.md](CANONICAL_CLANK_ARCHITECTURE_v0.1.md).
 Its primary/secondary precedence rule is governed by
 [ADR-0004](adr/0004-secondary-review-rule-integration.md). This pointer does
-not change the proposed operational authority boundaries in ADR-0001.
+not by itself change operational authority boundaries.
 
-ADR-0001 proposes that this repository govern the Clank fleet without running
-it, that the control-plane implementation and deployment ledger live in
-`diagnostic-clank`, and that `unified-clank-platform` be superseded after a
-documented unique-function disposition. None of those roles is active while
-ADR-0001 remains on an unmerged draft branch.
+ADR-0001 originally proposed that this repository govern the Clank fleet
+without running it, that Diagnostic own control-plane/inventory contracts,
+and that `unified-clank-platform` be superseded after a documented
+unique-function disposition. Its text still says Proposed and refers to an
+unmerged draft, although it is now in `main`. This dated historical wording
+is not proof that the live Diagnostic service implements the fleet adapter
+plane or that `unified-clank-platform` has been superseded.
+
+[ADR-0016](adr/0016-nas-observer-plane-and-snapshot-contract.md) is the
+owner-reviewed narrow observer-plane decision and becomes binding on reviewed
+merge: child state → governed read-only snapshot → versioned
+Diagnostic-owned adapter package → Motherclank. It ratifies the precise
+ADR-0001/0002 provisions listed there, supersedes the old unconditional
+observer probe hypothesis, and leaves the live Diagnostic service parallel.
+The adapter package Git SHA, artifact digest, observer surface version, and
+snapshot contract version are separate facts. No Board admission or runtime
+deployment follows from this authority pointer alone.
 
 The Phase 0 trust boundary is deliberately narrow:
 

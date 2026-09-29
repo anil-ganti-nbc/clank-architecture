@@ -26,8 +26,19 @@ Motherclank integration. The review-derived rules in
 mandatory rules: follow them where congruent with primary canon, and reconcile
 any conflict explicitly in a new ADR.
 
-> Status: **PROPOSED governance authority.** The Phase 0 promotion freeze and
-> authority decision become active only if this draft is reviewed and merged.
+The observer-plane reconciliation is recorded in
+[ADR-0016](adr/0016-nas-observer-plane-and-snapshot-contract.md).
+Platform-owner review is complete; ADR-0016 becomes binding on its reviewed
+merge and then serves as the dated authority for the NAS snapshot →
+Diagnostic-owned adapter package → Motherclank topology, the six-method
+observer surface, and the governed snapshot manifest. The live Diagnostic
+service remains parallel; its deployed SHA is not an adapter-package version.
+
+> Historical status note: ADR-0001 and ADR-0002 retained `Proposed` headings
+> after entering `main`; the earlier unmerged-draft wording is not a current
+> Git-topology claim. ADR-0016, on reviewed merge, ratifies the
+> specifically listed provisions without retroactively changing those files
+> or lifting the Phase 0 no-promotion controls.
 
 Historical and governance source for the Unified Clank ecosystem: architecture
 principles, agent working rules, the decision ledger, risk register, roadmap,
